@@ -15,20 +15,25 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 //import javax.swing.JOptionPane;
 
+/**
+ *  Classe de la fenêtre de l'épreuve Stegano3
+ */
 public class FenetreJavaScript extends FenetreEpreuve {
-
+    /**
+     * Génère la fenêtre de l'épreuve Stegano3
+     */
     public FenetreJavaScript() {
         super();
         _epreuve = new JavaScript();
-            setTitle("Cr�ation d'une �preuve de st�ganographie");
-        label =  new JLabel("<html><br><center><U>Description de l'�preuve</U><br><br>Cette �preuve de "
-                + "st�ganographie repose sur la capacit� � ne pas afficher des �l�ments du code gr�ce � l'option \"style=\"display:none;\".<br><br>"
+            setTitle("Création d'une épreuve de stéganographie");
+        label =  new JLabel("<html><br><center><U>Description de l'épreuve</U><br><br>Cette épreuve de "
+                + "st�ganographie repose sur la capacité à ne pas afficher des éléments du code grâce à l'option \"style=\"display:none;\".<br><br>"
                 + "Le joueur disposera d'une page HTML qui affichera un texte. <br><br>"
                 + "Il devra analyser le code pour trouver deux balises contenant l'option \"style=\"display:none;\" qui contiendront "
-                + "un num�ro de ligne et un num�ro de colonne.<br><br> Il suffira de trouver le mot correspondant � ces num�ros dans le texte, "
+                + "un numéro de ligne et un numéro de colonne.<br><br> Il suffira de trouver le mot correspondant à ces numéros dans le texte, "
                 + "qui correspondra au mot de passe.<br><br>"
-                + "Le joueur devra rentrer ce mot de passe pour valider l'�preuve.<br><br>"
-                + "Le cr�ateur de l'�preuve doit choisir un mot de passe � trouver compos� de lettre(s) "
+                + "Le joueur devra rentrer ce mot de passe pour valider l'épreuve.<br><br>"
+                + "Le créateur de l'épreuve doit choisir un mot de passe à trouver composé de lettre(s) "
                 + "obligatoirement .<br><br><center></html>");
 
         generateWindow();

@@ -12,8 +12,14 @@ import java.io.StringWriter;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Générer l'epreuve Stegano 3
+ *
+ */
 public class JavaScript extends EpreuveGenerator {
-
+    /**
+     * Crée l'épreuve Stegano3
+     */
     public void create() {
         try {
             String mdp = mdp();
@@ -36,6 +42,11 @@ public class JavaScript extends EpreuveGenerator {
 
     }
 
+    /**
+     * Insert chaque ligne du texte Candide dans une case d'un tableau
+     * @return le tableau avec les lignes du Candide
+     * @throws IOException
+     */
     public String[] liretxt() throws IOException {
         BufferedReader lecteurAvecBuffer = null;
         String ligne;
@@ -56,6 +67,22 @@ public class JavaScript extends EpreuveGenerator {
         return tableau;
     }
 
+    /**
+     *Crée le fichier texte avec le mot de passe ainsi que les indices concernant son emplacement
+     * @param tableau
+     *              contient le texte, le mot de passe et les indices
+     * @param mdp
+     *              mot de passe caché dans le texte
+     * @param n1
+     *              Position de l'indice ligne
+     * @param n2
+     *              Position de l'indice colonne
+     * @param c
+     *              n° de colonne du mot de passe
+     * @param l
+     *              n° de ligne du mot de passe
+     * @throws IOException
+     */
     public void ecriretxt(String[] tableau, String mdp, int n1, int n2, int c, int l) throws IOException {
 
         File f = new File("./Ressources/eu.telecomsudparis.CTFPlatform.epreuve.routines.EpreuveStegano3/CandideV2.txt");
@@ -114,6 +141,12 @@ public class JavaScript extends EpreuveGenerator {
         }
     }
 
+    /**
+     * Charge le fichier
+     * @param f
+     *              fichier a charger
+     * @return
+     */
     public String loadFile(File f) {
         try {
             BufferedInputStream in = new BufferedInputStream(new FileInputStream(f));
@@ -131,6 +164,11 @@ public class JavaScript extends EpreuveGenerator {
         }
     }
 
+    /**
+     * Transforme un fichier texte en un fichier javascript
+     * @param txt
+     *
+     */
     public void ecrireEpreuve(String txt) {
         File f = new File("eu.telecomsudparis.CTFPlatform.epreuve.routines.EpreuveStegano3.js");
 
@@ -171,6 +209,9 @@ public class JavaScript extends EpreuveGenerator {
         }
     }
 
+    /**
+     * Ecrit une page HTML à partir du fichier javascript
+     */
     public void ecrireHtml() {
         File f = new File("eu.telecomsudparis.CTFPlatform.epreuve.routines.EpreuveStegano3.html");
 
@@ -201,27 +242,35 @@ public class JavaScript extends EpreuveGenerator {
         }
     }
 
+    /**
+     * Saisir le mot de passe à retrouver
+     * @return le mot de passe saisie
+     */
     public String mdp() {
-        String mdp = JOptionPane.showInputDialog(null, "Entrez le mot de passe que vous d�sirez (compos� de "
-                + "lettres OBLIGATOIREMENT) : ", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+        String mdp = JOptionPane.showInputDialog(null, "Entrez le mot de passe que vous désirez (composé de "
+                + "lettres OBLIGATOIREMENT) : ", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
 
 
         while ((!mdp.matches("[a-zA-Z]+"))) {
-            JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez entrer un mot compos� de lettres "
-                    + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
-            mdp = JOptionPane.showInputDialog(null, "Entrez le mot de passe que vous d�sirez (compos� de "
-                    + "lettres OBLIGATOIREMENT) : ", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Valeur entrée invalide. Veuillez entrer un mot composé de lettres "
+                    + "", "Epreuve de Stéganographie n°3", JOptionPane.ERROR_MESSAGE);
+            mdp = JOptionPane.showInputDialog(null, "Entrez le mot de passe que vous désirez (composé de "
+                    + "lettres OBLIGATOIREMENT) : ", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
         }
 
         return mdp;
     }
 
+    /**
+     * Saisir la valeur de la position de l'indice ligne
+     * @return la valeur de l'indice ligne
+     */
     public int valeur1() {
 
         boolean b1 = false;
         int n1 = 0;
         String valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer un premier nombre entre 0 et 122 : "
-                + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
 
         if (valeur1 == null) {
             System.exit(0);
@@ -232,10 +281,10 @@ public class JavaScript extends EpreuveGenerator {
                 n1 = Integer.parseInt(valeur1);
                 b1 = true;
                 while (n1 < 0 || n1 > 122) {
-                    JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez r�essayer."
-                            + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Valeur entrée invalide. Veuillez réessayer."
+                            + "", "Epreuve de Stéganographie n°3", JOptionPane.ERROR_MESSAGE);
                     valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer un premier nombre entre 0 et 122 : "
-                            + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                            + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
                     try {
                         n1 = Integer.parseInt(valeur1);
                     } catch (NumberFormatException e) {
@@ -246,21 +295,27 @@ public class JavaScript extends EpreuveGenerator {
                 if (valeur1 == null) {
                     System.exit(0);
                 }
-                JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez r�essayer."
-                        + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Valeur entrée invalide. Veuillez réessayer."
+                        + "", "Epreuve de Stéganographie n°3", JOptionPane.ERROR_MESSAGE);
                 valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer un premier nombre entre 0 et 122 : "
-                        + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                        + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
             }
         }
         return n1;
     }
 
+    /**
+     * Saisir la valeur de la position de l'indice colonne différent de la position de l'indice ligne
+     * @param n2
+     *              valeur de l'indice ligne
+     * @return la valeur de l'indice colonne
+     */
     public int valeur2(int n2) {
 
         boolean b1 = false;
         int n1 = 0;
-        String valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer un second nombre entre 0 et 122 diff�rent de " + n2 + " : "
-                + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+        String valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer un second nombre entre 0 et 122 différent de " + n2 + " : "
+                + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
 
         if (valeur1 == null) {
             System.exit(0);
@@ -271,10 +326,10 @@ public class JavaScript extends EpreuveGenerator {
                 n1 = Integer.parseInt(valeur1);
                 b1 = true;
                 while (n1 < 0 || n1 > 122 || n1 == n2) {
-                    JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez r�essayer."
-                            + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
-                    valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer un second nombre entre 0 et 122 diff�rent de " + n2 + " : "
-                            + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Valeur entrée invalide. Veuillez réessayer."
+                            + "", "Epreuve de Stéganographie n°3", JOptionPane.ERROR_MESSAGE);
+                    valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer un second nombre entre 0 et 122 différent de " + n2 + " : "
+                            + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
                     try {
                         n1 = Integer.parseInt(valeur1);
                     } catch (NumberFormatException e) {
@@ -285,21 +340,25 @@ public class JavaScript extends EpreuveGenerator {
                 if (valeur1 == null) {
                     System.exit(0);
                 }
-                JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez r�essayer."
-                        + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Valeur entrée invalide. Veuillez réessayer."
+                        + "", "Epreuve de Stéganographie né3", JOptionPane.ERROR_MESSAGE);
                 valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer un second nombre entre 0 et 122 : "
-                        + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                        + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
             }
         }
         return n1;
     }
 
+    /**
+     * Saisir la colonne dans laquelle positionner le mot de passe
+     * @return la valeur de la colonne où sera placé le mot de passe
+     */
     public int colonne() {
 
         boolean b1 = false;
         int n1 = 0;
-        String valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le num�ro de colonne d�sir� entre 1 et 10 : "
-                + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+        String valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le numéro de colonne désiré entre 1 et 10 : "
+                + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
 
         if (valeur1 == null) {
             System.exit(0);
@@ -310,10 +369,10 @@ public class JavaScript extends EpreuveGenerator {
                 n1 = Integer.parseInt(valeur1);
                 b1 = true;
                 while (n1 < 1 || n1 > 10) {
-                    JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez r�essayer."
-                            + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
-                    valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le num�ro de colonne d�sir� entre 1 et 10 : "
-                            + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez réessayer."
+                            + "", "Epreuve de Stéganographie n°3", JOptionPane.ERROR_MESSAGE);
+                    valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le numéro de colonne désiré entre 1 et 10 : "
+                            + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
                     try {
                         n1 = Integer.parseInt(valeur1);
                     } catch (NumberFormatException e) {
@@ -323,21 +382,25 @@ public class JavaScript extends EpreuveGenerator {
                 if (valeur1 == null) {
                     System.exit(0);
                 }
-                JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez r�essayer."
-                        + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
-                valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le num�ro de colonne d�sir� entre 1 et 10 : "
-                        + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Valeur entrée invalide. Veuillez réessayer."
+                        + "", "Epreuve de Stéganographie n°3", JOptionPane.ERROR_MESSAGE);
+                valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le numéro de colonne désiré entre 1 et 10 : "
+                        + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
             }
         }
         return n1;
     }
 
+    /**
+     * Saisir la ligne dans laquelle positionner le mot de passe
+     * @return la valeur de la ligne où sera placé le mot de passe
+     */
     public int ligne() {
 
         boolean b1 = false;
         int n1 = 0;
-        String valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le num�ro de ligne d�sir� entre 1 et 123 : "
-                + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+        String valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le numéro de ligne désiré entre 1 et 123 : "
+                + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
 
         if (valeur1 == null) {
             System.exit(0);
@@ -348,10 +411,10 @@ public class JavaScript extends EpreuveGenerator {
                 n1 = Integer.parseInt(valeur1);
                 b1 = true;
                 while (n1 < 1 || n1 > 123) {
-                    JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez r�essayer."
-                            + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
-                    valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le num�ro de ligne d�sir� entre 1 et 123 : "
-                            + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Valeur entrée invalide. Veuillez réessayer."
+                            + "", "Epreuve de Stéganographie n°3", JOptionPane.ERROR_MESSAGE);
+                    valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le numéro de ligne désiré entre 1 et 123 : "
+                            + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
                     try {
                         n1 = Integer.parseInt(valeur1);
                     } catch (NumberFormatException e) {
@@ -361,15 +424,20 @@ public class JavaScript extends EpreuveGenerator {
                 if (valeur1 == null) {
                     System.exit(0);
                 }
-                JOptionPane.showMessageDialog(null, "Valeur entr�e invalide. Veuillez r�essayer."
-                        + "", "Epreuve de St�ganographie n�3", JOptionPane.ERROR_MESSAGE);
-                valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le num�ro de ligne d�sir� entre 1 et 123 : "
-                        + "", "Epreuve de St�ganographie n�3", JOptionPane.QUESTION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Valeur entrée invalide. Veuillez réessayer."
+                        + "", "Epreuve de Stéganographie n°3", JOptionPane.ERROR_MESSAGE);
+                valeur1 = JOptionPane.showInputDialog(null, "Veuillez entrer le numéro de ligne désiré entre 1 et 123 : "
+                        + "", "Epreuve de Stéganographie n°3", JOptionPane.QUESTION_MESSAGE);
             }
         }
         return n1;
     }
 
+    /**
+     * Créer le fichier LanceurStegano3.java
+     * @param keyword
+     *                  Mot de passe à trouver
+     */
     public void creerJava(String keyword) {
         File f = new File("./Ressources/eu.telecomsudparis.CTFPlatform.epreuve.routines.EpreuveStegano3/LanceurStegano3.java");
 
@@ -404,6 +472,9 @@ public class JavaScript extends EpreuveGenerator {
 
     }
 
+    /**
+     * Création de l'exécutable de l'épreuve dans un nouveau fichier
+     */
     public void creerEpreuve() {
 
         File f = new File(".\\Ressources\\eu.telecomsudparis.CTFPlatform.epreuve.routines.EpreuveStegano3\\Executable.bat");
@@ -416,14 +487,14 @@ public class JavaScript extends EpreuveGenerator {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                JOptionPane.showMessageDialog(null, "L'�preuve a bien �t� cr��e !", "Confirmation de cr�ation"
+                JOptionPane.showMessageDialog(null, "L'épreuve a bien été créée !", "Confirmation de création"
                         + "", JOptionPane.INFORMATION_MESSAGE);
             } catch (IOException e) {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Impossible de cr�er l'�preuve. R�essayez", "Probl�me de cr�ation"
+            JOptionPane.showMessageDialog(null, "Impossible de créer l'épreuve. Réessayez", "Problème de création"
                     + "", JOptionPane.ERROR_MESSAGE);
         }
     }
