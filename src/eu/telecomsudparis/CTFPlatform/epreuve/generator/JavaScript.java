@@ -498,5 +498,4 @@ public class JavaScript extends EpreuveGenerator {
                     + "", JOptionPane.ERROR_MESSAGE);
         }
     }
-
 }
