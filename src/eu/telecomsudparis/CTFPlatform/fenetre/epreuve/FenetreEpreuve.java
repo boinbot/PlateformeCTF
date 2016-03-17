@@ -11,9 +11,6 @@ import javax.swing.*;
  * @param <T> Précise le type de générateur pris en compte par la fenêtre
  */
 abstract public class FenetreEpreuve<T extends EpreuveGenerator> extends JFrame {
-    /**
-     *
-     */
     private static final long serialVersionUID = 1L;
     protected T _epreuve;
     //private eu.telecomsudparis.CTFPlatform.epreuve.generator.helper.Panneau panneau = new eu.telecomsudparis.CTFPlatform.epreuve.generator.helper.Panneau();
@@ -45,10 +42,8 @@ abstract public class FenetreEpreuve<T extends EpreuveGenerator> extends JFrame 
         bouton.addActionListener(new ButtonCreateEpreuve<>(_epreuve, this));
         bouton2.addActionListener(new ButtonReturnToMenu(this));
 
-        /**
-         * Création d'un panneau
-         * Ajout des boutons "créer épreuve" et "retour au menu", liés à la fenetre créée
-         */
+        //Création d'un panneau
+        //Ajout des boutons "créer épreuve" et "retour au menu", liés à la fenetre créée
 
         pan.setLayout(new BoxLayout(pan, BoxLayout.LINE_AXIS));
         pan.add(bouton);
@@ -57,25 +52,19 @@ abstract public class FenetreEpreuve<T extends EpreuveGenerator> extends JFrame 
 
         label.setHorizontalAlignment(JLabel.CENTER);
 
-        /**
-         * Création d'un autre panneau
-         * Ajout de la description de l'épreuve
-         */
+        //Création d'un autre panneau
+        //Ajout de la description de l'épreuve
 
         pan2.setLayout(new BoxLayout(pan2, BoxLayout.LINE_AXIS));
         pan2.add(label);
 
-        /**
-         * Création d'un panneau combinant les 2 précédents
-         */
+        //Création d'un panneau combinant les 2 précédents
 
         pan3.setLayout(new BoxLayout(pan3, BoxLayout.PAGE_AXIS));
         pan3.add(pan2);
         pan3.add(pan);
 
-        /**
-         * La fenetre contiendra ce dernier panneau
-         */
+        //La fenetre contiendra ce dernier panneau
 
         this.setContentPane(pan3);
 

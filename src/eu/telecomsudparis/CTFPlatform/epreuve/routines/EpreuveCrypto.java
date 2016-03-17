@@ -2,7 +2,17 @@ package eu.telecomsudparis.CTFPlatform.epreuve.routines;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Afficher l'épreuve de crypto pour l'utilisateur
+ */
+
 public class EpreuveCrypto {
+    /**
+     * Afficher une fenetre adaptée de l'épreuve selon la réponse de l'utilisateur
+     * @param clue1 Premier indice fourni par le créateur d'épreuve
+     * @param clue2 Deuxième indice, calculé en fonction du premier par Playfair
+     * @param keyword Mot de passe à trouver par l'utilisateur
+     */
 
     public void creationEpreuve(String clue1, String clue2, String keyword) {
 

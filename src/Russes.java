@@ -1,6 +1,14 @@
 import java.util.Scanner;
 
+/**
+ * Gère la table liée à l'épreuve de crypto
+ */
+
 public class Russes {
+	/**
+	 *
+	 * @param args Tableau des arguments de la fonction en ligne de commande
+	 */
 
 	public static void main(String[] args) {
 		
@@ -10,6 +18,12 @@ public class Russes {
 	    String[][] Table=cipherTable(key);
 	    printTable(Table);	
 	}
+
+    /**
+     *
+     * @param s Mot entré par l'utilisateur
+     * @return String modifié (majuscules, uniquement des lettres et "j" remplacé par "i"
+     */
 	
 	public static String parseString(Scanner s){
 	    String parse = s.nextLine();
@@ -18,6 +32,11 @@ public class Russes {
 	    parse = parse.replace("J", "I");
 	    return parse;
 	  }
+
+    /**
+     * Affiche la table
+     * @param table Tableau de string
+     */
 		
 	private static void printTable(String[][] table) {
 		for(int i = 0; i < table.length; i++){
@@ -27,7 +46,13 @@ public class Russes {
 			System.out.println();
 		}
 	}
-	
+
+    /**
+     * Chiffre la clé dans un tableau
+     * @param key String modifié (majuscules ...)
+     * @return Tableau de string
+     */
+
 	public static String[][] cipherTable(String key){
 			    String[][] playfairTable = new String[5][5];
 			    String keyString = key + "ABCDEFGHIKLMNOPQRSTUVWXYZ";

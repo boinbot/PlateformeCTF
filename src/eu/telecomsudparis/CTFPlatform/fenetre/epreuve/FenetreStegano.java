@@ -14,8 +14,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 //import javax.swing.JOptionPane;
 
+/**
+ * Créer la fenêtre de génération de l'épreuve de stégano 1
+ */
 public class FenetreStegano extends FenetreEpreuve {
     public FenetreStegano() {
+        //super appelle le constructeur de la classe parente
         super();
         try {
             _epreuve = new Stegano();

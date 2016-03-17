@@ -10,11 +10,20 @@ import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+/**
+ *
+ */
+
 public class PanneauSteg extends JPanel {
-    /**
-     *
-     */
+
     private static final long serialVersionUID = 1L;
+
+    /**
+     * Transforme le mot de passe en une suite de bits après sa saisie
+     * Paint l'image créée pour l'épreuve avec les images dispos
+     * Ecrit la classe LanceurStegano pour le lancement coté utilisateur
+     * @param g Image créée pour l'épreuve
+     */
 
     public void paintComponent(Graphics2D g) {
 
@@ -298,6 +307,10 @@ public class PanneauSteg extends JPanel {
         }
 
     }
+
+    /**
+     * Créer l'executable de l'épreuve
+     */
 
     public void creerEpreuve() {
 

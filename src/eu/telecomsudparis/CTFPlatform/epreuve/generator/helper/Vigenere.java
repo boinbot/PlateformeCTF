@@ -8,7 +8,7 @@ import java.util.Arrays;
 
 public class Vigenere {
     /**
-     * @param args
+     * @param args Argument fourni en ligne de commande
      */
     public static void main(String[] args) {
         String[] alphabet = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K",
@@ -22,8 +22,8 @@ public class Vigenere {
     }
 
     /**
-     * @param alphabet
-     * @return
+     * @param alphabet String contenant l'aphabet
+     * @return la table de Vigenère (alphabet décalé de 1 vers la droite à chaque ligne)
      */
 
     private static String[][] createTable(String[] alphabet) {
@@ -54,8 +54,8 @@ public class Vigenere {
 }*/
 
     /**
-     * @param motDePasse
-     * @return
+     * @param motDePasse Mot fourni par le créateur
+     * @return String contenant les lettres du mot de passe séparées
      */
 
     public static String motCode(String motDePasse) {
@@ -66,10 +66,10 @@ public class Vigenere {
     }
 
     /**
-     * @param lettre
-     * @param ligne
-     * @param tableau
-     * @return
+     * @param lettre lettre cherchée
+     * @param ligne ligne voulue
+     * @param tableau Table de vigenère
+     * @return le numéro de la colonne voulue
      */
     public static int retournerColonne(String lettre, int ligne, String[][] tableau) {
 
@@ -82,8 +82,9 @@ public class Vigenere {
     }
 
     /**
-     * @param motDePasse
-     * @return
+     * Crypte le mot de passe avec la table
+     * @param motDePasse mot de passe fourni par le créateur
+     * @return Mot de passe crypté par la table de Vigenère
      */
     public static String correspondEpreuve(String motDePasse) {
 

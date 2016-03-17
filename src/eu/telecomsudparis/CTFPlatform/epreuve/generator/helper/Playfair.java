@@ -2,14 +2,18 @@ package eu.telecomsudparis.CTFPlatform.epreuve.generator.helper;
 
 import java.util.Scanner;
 
+/**
+ *
+ */
+
 public class Playfair {
 
     private static String[][] table;
 
-    /**
+    /** Crypte le premier indice pour en fournir un deuxième
      * @param keyword
      * @param motDePasse
-     * @return
+     * @return le deuxième indice (la version cryptée du premier)
      */
 
     public static String deuxiemeIndice(String keyword, String motDePasse) {
@@ -26,9 +30,9 @@ public class Playfair {
     }
 
     /**
-     * @param playfair
-     * @param motDePasse
-     * @return
+     * @param playfair Table de codage
+     * @param motDePasse Mot fourni par le créateur
+     * @return Le mot de passe codé
      */
 
     public static String convertirMotDePasse(String playfair[][], String motDePasse) {
@@ -57,8 +61,8 @@ public class Playfair {
     }
 
     /**
-     * @param s
-     * @return
+     * @param s Mot fourni par le créateur
+     * @return Mot en majuscules, ne contenant que des lettres
      */
 
     public static String parseString(Scanner s) {
@@ -70,8 +74,8 @@ public class Playfair {
     }
 
     /**
-     * @param s
-     * @return
+     * @param s Mot fourni par le créateur
+     * @return Mot en majuscules, ne contenant que des lettres, avec des "I" à la place des "J"
      */
 
     public static String CorrectString(String s) {
@@ -82,8 +86,9 @@ public class Playfair {
     }
 
     /**
-     * @param key
-     * @return
+     *
+     * @param key Clé de cryptage
+     * @return Table codée avec la clé
      */
 
     private static String[][] cipherTable(String key) {
@@ -114,7 +119,7 @@ public class Playfair {
     }
 
     /**
-     * @param printedTable
+     * @param printedTable Table à afficher
      */
     private static void printTable(String[][] printedTable) {
         System.out.println("This is the cipher table from the given keyword.");

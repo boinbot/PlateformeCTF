@@ -8,6 +8,10 @@ import java.io.*;
 
 import javax.imageio.ImageIO;
 
+/**
+ * Crée l'image utilisée pour l'épreuve de stégano et crée l'épreuve
+ */
+
 public class Stegano extends EpreuveGenerator {
     public Stegano() throws IOException {
     	//Thread.currentThread().getContextClassLoader().getResourceAsStream("./eu.telecomsudparis.CTFPlatform.epreuve.routines.EpreuveStegano1");

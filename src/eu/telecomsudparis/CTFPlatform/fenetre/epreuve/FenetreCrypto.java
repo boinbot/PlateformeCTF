@@ -3,6 +3,10 @@ package eu.telecomsudparis.CTFPlatform.fenetre.epreuve;
 import eu.telecomsudparis.CTFPlatform.epreuve.generator.Crypto;
 import javax.swing.JLabel;
 
+/**
+ * Créer la fenêtre de génération de l'épreuve de crypto
+ */
+
 public class FenetreCrypto extends FenetreEpreuve {
     public FenetreCrypto() {
         super();

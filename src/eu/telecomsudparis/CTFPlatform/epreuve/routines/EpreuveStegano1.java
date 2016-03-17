@@ -2,8 +2,14 @@ package eu.telecomsudparis.CTFPlatform.epreuve.routines;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Afficher et gérer l'épreuve de stégano 1 pour l'utilisateur
+ */
 public class EpreuveStegano1 {
-
+    /**
+     * Afficher une fenetre adaptée de l'épreuve selon la réponse de l'utilisateur
+     * @param keyword Mot de passe à trouver par l'utilisateur
+     */
 public void creationEpreuve(String keyword) {
 		
 		Boolean b1 = false;
