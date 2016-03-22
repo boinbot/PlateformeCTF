@@ -2,9 +2,18 @@ package eu.telecomsudparis.CTFPlatform.epreuve.routines;
 
 import javax.swing.JOptionPane;
 
+/**
+ * Cette classe permet de vérifier la conformité du mot de passe entré par l'utilisateur et de lui faire valider l'épreuve.
+ * @author Mr X
+ * @version 2.0
+ */
 public class EpreuveJavaScript {
 
-public void creationEpreuve(String keyword) {
+	/**
+	 * Vérifie la conformité et la validité ou non du mot de passe rentré par l'utilisateur pour réussir l'épreuve
+	 * @param keyword string, mot de passe rentré par l'utilisateur.
+	 */
+	public void creationEpreuve(String keyword) {
 		
 		Boolean b1 = false;
 		
