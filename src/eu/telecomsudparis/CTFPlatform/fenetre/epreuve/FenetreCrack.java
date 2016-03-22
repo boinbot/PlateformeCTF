@@ -3,7 +3,16 @@ package eu.telecomsudparis.CTFPlatform.fenetre.epreuve;
 import eu.telecomsudparis.CTFPlatform.epreuve.CrackMe;
 import javax.swing.JLabel;
 
+/**
+ * Fenêtre de l'épreuve crack me pour le créateur de l'épreuve
+ * @author Mr X
+ * @version 2.0
+ */
 public class FenetreCrack extends FenetreEpreuve {
+
+    /**
+     * Création et affichage de la fenêtre de l'épreuve contenant les indications pour le créateur.
+     */
     public FenetreCrack() {
         super();
         _epreuve = new CrackMe();
