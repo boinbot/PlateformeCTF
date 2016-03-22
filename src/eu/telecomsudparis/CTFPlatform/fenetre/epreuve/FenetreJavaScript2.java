@@ -13,6 +13,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 //import javax.swing.JOptionPane;
 
+/**
+ * Fenetre de création de l'épreuve de javascript
+ * @author Mr X
+ * @version 2.0
+ */
 public class FenetreJavaScript2 extends FenetreEpreuve {
     public FenetreJavaScript2() {
         super();
