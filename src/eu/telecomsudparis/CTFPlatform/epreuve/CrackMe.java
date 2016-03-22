@@ -8,9 +8,18 @@ import java.io.IOException;
 
 import javax.swing.JOptionPane;
 
+/** CrackMe.java permet de générer l'épreuve de crack me du coté créateur d'épreuve
+ * @see ../fenetre/epreuve/common/FenetreCrack
+ * @author Mr X
+ * @version 2.0
+ */
+
 
 public class CrackMe extends EpreuveGenerator {
 
+    /**
+     * Créer l'épreuve
+     */
     public void create() {
         String[] mot = selectionnerMot();
         String[][] epreuve = intermediaire(mot);
@@ -18,6 +27,12 @@ public class CrackMe extends EpreuveGenerator {
         creerEpreuve();
     }
 
+    /**
+     * Permet de crypter le mot de passe rentrer par le créateur de l'épreuve pour qu'il n'apparaisse pas
+     * en clair dans le code. Le mot de passe est crypté par rapport à une liste de mots et un alphabet.
+     * @param keyword string, mot de passe rentré par le créateur de l'épreuve.
+     * @return string crack, mot de passe après cryptage.
+     */
     public String[][] intermediaire(String[] keyword) {
 
         int longueur = keyword.length;
@@ -60,6 +75,9 @@ public class CrackMe extends EpreuveGenerator {
 
     }
 
+    /**
+     * permet de selectioner le mot de passe entré par le créateur de l'épreuve.
+     */
     public String[] selectionnerMot() {
         String keyword = JOptionPane.showInputDialog(null, "Entrez le mot de passe que vous d�sirez en MAJUSCULE : ", "Epreuve de "
                 + "eu.telecomsudparis.CTFPlatform.epreuve.CrackMe", JOptionPane.QUESTION_MESSAGE);
@@ -73,6 +91,11 @@ public class CrackMe extends EpreuveGenerator {
         return splitArray;
     }
 
+    /**
+     * Création d'un fichier texte contenant le code en langage C de EpreuveCrackMe.c
+     * L'utilisateur devra décompiler le code assembleur généré par ce fichier qui contient la liste de mots qui permet de trouver le mot de passe rentré par le créateur de l'épreuve
+     * @param crack mot de passe entré par le créateur de l'épreuve et crypté par intermédiaire
+     */
     public void creerTxt(String[][] crack) {
 
         int n = crack.length;
@@ -138,6 +161,9 @@ public class CrackMe extends EpreuveGenerator {
         }
     }
 
+    /**
+     * Génération du fichier executable Executable.bat
+     */
     public void creerEpreuve() {
 
         File f = new File(".\\Ressources\\EpreuveCrackMe\\Executable.bat");
